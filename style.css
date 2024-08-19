@@ -1,0 +1,337 @@
+@import url(https://fonts.googleapis.com/css?family=Manrope:200,300,regular,500,600,700,800);
+
+:root {
+  --Soft-Cyan-Full-Slider-Bar: hsl(174, 77%, 80%);
+  --Strong-Cyan-Slider-Backround: hsl(174, 86%, 45%);
+  --Light-Grayish-Red-Discount-Background: hsl(14, 92%, 95%);
+  --Light-Red-Discount-Text: hsl(15, 100%, 70%);
+  --Pale-Blue-CTA-Text: hsl(226, 100%, 87%);
+  /*  ----------------------------------------------------- */
+  --White-Pricing-Component-Background: hsl(0, 0%, 100%);
+  --Very-Pale-Blue-Main-Background: hsl(230, 100%, 99%);
+  --Light-Grayish-Blue-Empty-Slider-Bar: hsl(224, 65%, 95%);
+  --Light-Grayish-Blue-Toggle-Background: hsl(223, 50%, 87%);
+  --Grayish-Blue-Text: hsl(225, 20%, 60%);
+  --Dark-Desaturated-Blue-Text-CTA-Background: hsl(227, 35%, 25%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Manrope", "Helvetica Neue";
+  background-image: url(images/bg-pattern.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: var(--Very-Pale-Blue-Main-Background);
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  background-image: url(images/pattern-circles.svg);
+  background-repeat: no-repeat;
+  background-position: center 10%;
+  background-size: 12%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 100px 0;
+  gap: 10px;
+  color: var(--Grayish-Blue-Text);
+  font-weight: 600;
+}
+
+main header h2 {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--Dark-Desaturated-Blue-Text-CTA-Background);
+}
+
+main header p {
+  font-size: 20px;
+}
+
+main section {
+  width: 600px;
+  background-color: var(--White-Pricing-Component-Background);
+  margin-top: 80px;
+  border-radius: 6px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.171);
+}
+
+main section .amount {
+  padding: 50px 50px 0px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+main section .amount .bill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+main section .amount .bill h1 {
+  color: var(--Dark-Desaturated-Blue-Text-CTA-Background);
+  font-weight: 800;
+  font-size: 40px;
+}
+
+main section .amount p {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+main section .amount .amount-slider {
+  width: 100%;
+}
+
+main section .amount .amount-slider input {
+  appearance: none;
+  background: transparent;
+  width: 100%;
+  height: 12px;
+  border-radius: 8px;
+  background-color: var(--Light-Grayish-Blue-Toggle-Background);
+}
+
+main section .amount .amount-slider input::-webkit-slider-thumb {
+  appearance: none;
+  margin-top: -18px;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: url(images/icon-slider.svg) center no-repeat,
+    var(--Strong-Cyan-Slider-Backround);
+  box-shadow: 1px 14px 20px var(--Soft-Cyan-Full-Slider-Bar);
+}
+
+main section .amount .amount-slider input:focus {
+  outline: none;
+}
+
+main section .amount .amount-slider input::-webkit-slider-runnable-track {
+  background-color: var(--Soft-Cyan-Full-Slider-Bar);
+  height: 12px;
+  border-radius: 8px;
+}
+
+main section .toggle {
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+main section .toggle span {
+  font-size: 15px;
+}
+
+main section .toggle .mobile-discount {
+  display: none;
+}
+
+main section .toggle .desktop-discount,
+main section .toggle .mobile-discount {
+  color: var(--Light-Red-Discount-Text);
+  background-color: var(--Light-Grayish-Red-Discount-Background);
+  border-radius: 10px;
+  padding: 2px 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+main .toggle .switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  overflow: hidden;
+}
+
+main .toggle .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+main .toggle .slider {
+  width: 100%;
+  position: absolute;
+  cursor: pointer;
+  inset: 0 0 0 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+main .toggle .slider:hover {
+  background-color: var(--Soft-Cyan-Full-Slider-Bar);
+}
+
+main .toggle .slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+main .toggle input:checked + .slider {
+  background-color: var(--Strong-Cyan-Slider-Backround);
+}
+
+main .toggle input:checked + .slider:before {
+  transform: translateX(130%);
+}
+
+main footer {
+  padding: 50px;
+  border-top: 1px solid var(--Light-Grayish-Blue-Toggle-Background);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main footer ul {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  list-style: none;
+}
+
+main footer ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+main footer ul li img {
+  width: 12px;
+  height: 12px;
+}
+
+main footer button {
+  cursor: pointer;
+  font-family: "Manrope", "Helvetica Neue";
+  font-size: 16px;
+  font-weight: 600;
+  background-color: var(--Dark-Desaturated-Blue-Text-CTA-Background);
+  color: var(--Pale-Blue-CTA-Text);
+  border: none;
+  border-radius: 50px;
+  padding: 10px;
+  width: 200px;
+}
+
+main footer button:hover {
+  color: var(--Very-Pale-Blue-Main-Background);
+}
+
+@media (max-width: 600px) {
+  html,
+  body {
+    background-size: 350%;
+  }
+
+  main {
+    padding: 60px 30px;
+    background-position: center 5%;
+    background-size: 50%;
+    gap: 80px;
+  }
+
+  main header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  main header h2 {
+    font-size: 22px;
+  }
+
+  main header p {
+    font-size: 15px;
+    line-height: 1.8;
+    text-wrap: balance;
+  }
+
+  main section {
+    width: 350px;
+    margin-top: 10px;
+  }
+
+  main section .amount {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+
+  main section .amount p {
+    order: 1;
+  }
+
+  main section .amount .amount-slider {
+    order: 2;
+  }
+
+  main section .amount .bill {
+    order: 3;
+  }
+
+  main section .toggle {
+    padding: 0px 20px 40px 20px;
+    gap: 10px;
+  }
+
+  main section .toggle span {
+    font-size: 14px;
+  }
+
+  main section .toggle .mobile-discount {
+    display: block;
+    border-radius: 14px;
+    padding: 2px 6px;
+    font-size: 12px;
+  }
+  main section .toggle .desktop-discount {
+    display: none;
+  }
+
+  main section footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  main section footer ul {
+    align-items: center;
+  }
+
+  main section footer ul li {
+    font-size: 15px;
+  }
+
+  main section footer button {
+    padding: 15px;
+  }
+}
